@@ -19,15 +19,15 @@ jobs:
                 node-version: 22
             
             - name: Install Dependencies
-              uses: npm install --legacy-peer-deps
+              run: npm install --legacy-peer-deps
 
             - name: Creating Build
-              uses: npm run build
+              run: npm run build
             
             - name: Starting Service
-              uses: npm run start
+              run: npm run start
 
             - name: Service Started
-              uses: echo "Service Started Successfully"
+              run: echo "Service Started Successfully"
 
 
