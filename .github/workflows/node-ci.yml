@@ -9,6 +9,9 @@ on:
 jobs:
     builds:
         runs-on: ubuntu-latest
+        env:
+          HELLO: ${{ secrets.HELLO }}
+          
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
@@ -23,8 +26,6 @@ jobs:
 
             - name: Creating Build
               run: npm run build
-              env:
-                HELLO: ${{ secrets.HELLO }}
             
             - name: Starting Service
               run: npm run start
