@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
           HELLO: ${{ secrets.HELLO }}
-          
+
         steps:
             - name: Checkout Code
               uses: actions/checkout@v4
@@ -23,13 +23,17 @@ jobs:
             
             - name: Install Dependencies
               run: npm install --legacy-peer-deps
-
+              env:
+                HELLO: ${{ secrets.HELLO }}
             - name: Creating Build
               run: npm run build
-            
+              env:
+                HELLO: ${{ secrets.HELLO }}
+
             - name: Starting Service
               run: npm run start
-              
+              env:
+                HELLO: ${{ secrets.HELLO }}              
 
             - name: Service Started
               run: echo "Service Started Successfully"
