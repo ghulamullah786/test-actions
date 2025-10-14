@@ -26,6 +26,8 @@ jobs:
             
             - name: Starting Service
               run: npm run start
+              env:
+                HELLO: ${{ secrets.HELLO }}
 
             - name: Service Started
               run: echo "Service Started Successfully"
