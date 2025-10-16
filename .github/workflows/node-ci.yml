@@ -32,7 +32,7 @@ jobs:
               run: npm run build
              
             - name: Starting Service
-              run: npm run start
+              run: npm run start &
 
             - name: Service Started
               run: echo "Service Started Successfully"
