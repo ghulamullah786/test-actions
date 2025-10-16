@@ -25,9 +25,18 @@ jobs:
             - name: Creating Environment Variables
               run: touch .env
 
+            - name: Check if secret exists
+              run: |
+                if [ -z "${{ secrets.HELLO }}" ]; then
+                  echo "Secret is empty or unavailable!"
+                else
+                  echo "Secret exists but not printed for security."
+                fi
+
+
             - name: Inserting Variable in .env
               run: echo "HELLO=${{ secrets.HELLO }}" >> .env
-
+              
              
             - name: Creating Build
               run: npm run build
