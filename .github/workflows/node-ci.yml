@@ -21,14 +21,18 @@ jobs:
             
             - name: Install Dependencies
               run: npm install --legacy-peer-deps
+            
+            - name: Creating Environment Variables
+              run: touch .env
+
+            - name: Inserting Variable in .env
+              run: echo "HELLO = ${{ secrets.HELLO }}"
              
             - name: Creating Build
               run: npm run build
              
             - name: Starting Service
               run: npm run start
-              env:
-                HELLO: ${{ secrets.HELLO }}              
 
             - name: Service Started
               run: echo "Service Started Successfully"
