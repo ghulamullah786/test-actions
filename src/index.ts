@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 const server = app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}:${process.env.TEST}`);
+    console.log(`Server listening at http://localhost:${port}`);
 });
 const segmenter = new Intl.Segmenter('en', { granularity: 'word' });
 const input = "Hello world!";
